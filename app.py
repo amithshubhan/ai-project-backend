@@ -51,10 +51,10 @@ def upload():
     # newfile = 
     
     if filename.endswith('.wav'):
-        file.save(f'test.wav')
+        file.save(dst)
     else:
-        file.save(f'uploads/{filename}')
-        sound = AudioSegment.from_mp3(f'uploads/{filename}')
+        file.save(src)
+        sound = AudioSegment.from_mp3(src)
         sound.export(dst, format="wav")
     ext_fil = features_extractor(dst)
     print(ext_fil.shape)
