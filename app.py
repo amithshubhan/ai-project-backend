@@ -13,9 +13,21 @@ from pydub import AudioSegment
 from flask_cors import  CORS,cross_origin
 from flask.helpers import send_from_directory
 
-print('Hello')
-app = Flask(__name__,static_folder='my-app/build',static_url_path='')
+
+
+
+
+app = Flask(__name__)
 # ,static_folder='./my-app/build',static_url_path=''
+
+
+@app.route('/')
+# @cross_origin()
+def serve():
+    print('Hello')
+    # return "Hello World";
+    # return send_from_directory(app.static_folder,'index.html')
+    return "HELLO"
 def features_extractor(file):
     audio,sampling_rate=librosa.load(file,offset=0.5)
     mfccs_features=np.mean(librosa.feature.mfcc(y=audio,sr=sampling_rate,n_mfcc=40).T,axis=0)
@@ -66,11 +78,7 @@ def upload():
 
     return {"message":lister[ind]}
 
-@app.route('/')
-@cross_origin()
-def serve():
-    # return "Hello World";
-    return send_from_directory(app.static_folder,'index.html')
+
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(debug=True)
