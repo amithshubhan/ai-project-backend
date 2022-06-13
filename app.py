@@ -1,17 +1,17 @@
 from flask import Flask, request, redirect,render_template,json,url_for, session
-# from time import sleep
-# import os
-# import librosa
-# import librosa.display
-# import numpy as np
-# import tensorflow as tf
-# from tensorflow import keras
-# import h5py
-# from keras.models import load_model
-# from os import path
-# from pydub import AudioSegment
-# from flask_cors import  CORS,cross_origin
-# from flask.helpers import send_from_directory
+from time import sleep
+import os
+import librosa
+import librosa.display
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
+import h5py
+from keras.models import load_model
+from os import path
+from pydub import AudioSegment
+from flask_cors import  CORS,cross_origin
+from flask.helpers import send_from_directory
 
 
 
